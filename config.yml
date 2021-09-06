@@ -4,7 +4,8 @@ author: 若离QQ：2909998156
 # 特别提示：调试完成后请记得将debug改为false
 # 特别提示：调试完成后请记得将debug改为false
 debug: false
-# 推送方式：0：邮件推送；1：qmsg推送；2：待添加更多推送
+# 推送方式：0：邮件推送；1：qmsg推送(https://qmsg.zendee.cn/)
+#2：pushplus微信推送(http://pushplus.hxtrip.com/)
 sendType: 2
 # 当且仅当sendType为0时有用，邮箱API的地址
 emailApiUrl: 'https://api.ruoli.cc/sendMail'
