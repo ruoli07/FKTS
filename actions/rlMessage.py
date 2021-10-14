@@ -54,14 +54,19 @@ class RlMessage:
     def pushplus(self, status, msg):
         if self.sendKey == '':
             return 'pushplus token 为空，已取消发送！'
-        url = 'http://pushplus.hxtrip.com/send'
         params = {
             'token': self.sendKey,
             'title': f'[{status}]今日校园填报通知',
             'content': f'[{Utils.getAsiaDate()} {Utils.getAsiaTime()}]\n[今日校园填报情况]\n{msg}'
         }
-        res = requests.post(url=url, params=params).json()
-        return res
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0'
+        }
+        res = requests.post("https://pushplus.hxtrip.com/send", headers=headers, params=params)
+        if res.status_code == 200:
+            return "发送成功"
+        else:
+            return "发送失败"
 
     # 统一发送接口名
     def send(self, status, msg):
